@@ -1,7 +1,7 @@
 import { Map } from 'immutable';
 
 const _defaultState = Map({
-  name: ""
+  name: "ripples"
 });
 
 const dataReducer = (state = _defaultState, action) => {
