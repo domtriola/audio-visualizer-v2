@@ -2,8 +2,8 @@ import Effect from '../Effect';
 import Ripple from './Ripple';
 
 class Ripples extends Effect {
-  constructor(analyser, canvas, ctx, params) {
-    super(analyser, canvas, ctx, params);
+  constructor(analyser, canvas, ctx, parameters) {
+    super(analyser, canvas, ctx, parameters);
 
     this.ripples = [];
 
@@ -13,9 +13,11 @@ class Ripples extends Effect {
 
   genRipple(vol, colors) {
     const ripple = new Ripple(
-      vol, colors,
+      vol, this.parameters.get('weight'),
+      this.parameters.get('intensity'), colors,
       [Math.floor(this.canvas.width / 2), Math.floor(this.canvas.height / 2)]
     );
+
     this.ripples.push(ripple);
   }
 
@@ -24,7 +26,7 @@ class Ripples extends Effect {
 
     this.ripples.forEach(ripple => {
       this.ctx.strokeStyle = ripple.rgb;
-      this.ctx.lineWidth = 6;
+      this.ctx.lineWidth = ripple.width;
       this.ctx.beginPath();
       this.ctx.arc(ripple.pos[0], ripple.pos[1],
                    ripple.size, 0, 2 * Math.PI);

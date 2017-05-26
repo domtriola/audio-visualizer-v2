@@ -7,7 +7,7 @@ const _defaultState = fromJS({
     green: 175,
     blue: 175
   },
-  intensity: 50,
+  intensity: 30,
   weight: 5
 });
 

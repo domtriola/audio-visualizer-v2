@@ -1,13 +1,12 @@
 class Ripple {
-  constructor(vol, colors, pos) {
-    this.vol = vol;
+  constructor(vol, weight, intensity, colors, pos) {
     this.pos = pos;
     this.rgb = 'rgba(' + colors.red + ',' +
                          colors.green + ',' +
                          colors.blue + ', 0.6)';
     this.size = 0;
-    this.width = 1;
-    this.speed = vol / 40000;
+    this.width = weight;
+    this.speed = vol / 1000000 * intensity;
   }
 }
 

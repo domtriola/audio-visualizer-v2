@@ -6,10 +6,6 @@ const effects = {
 
 class Animator {
   constructor(analyser, canvas, ctx, effect, parameters) {
-    this.analyser = analyser;
-    this.canvas = canvas;
-    this.ctx = ctx;
-    this.parameters = parameters;
     this.effectName = effect.get('name');
 
     const Effect = effects[this.effectName];

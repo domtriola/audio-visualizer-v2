@@ -28,6 +28,7 @@ class RightSidebar extends Component {
         <div className="sidebar-content">
           <h2>Parameters</h2>
 
+          <h3>Colors</h3>
           <Colors
             colors={this.props.parameters.get('colors')}
             updateColor={this.updateColor} />
@@ -41,7 +42,7 @@ class RightSidebar extends Component {
 
           <h3>Intensity</h3>
           <ParamSlider
-            min={0}
+            min={1}
             max={100}
             value={this.props.parameters.get('intensity')}
             updateParam={this.updateParam('intensity')} />

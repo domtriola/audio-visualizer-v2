@@ -17,7 +17,6 @@ function backgroudColor(color, value) {
 
 const Colors = ({ colors, updateColor }) => (
   <div>
-    <h3>Colors</h3>
     <div className="color-slider">
       <div
         className="color-box red"
