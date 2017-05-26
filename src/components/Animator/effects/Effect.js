@@ -1,15 +1,15 @@
 class Effect {
-  constructor(analyser, canvas, ctx, params) {
+  constructor(analyser, canvas, ctx, parameters) {
     this.analyser = analyser;
     this.canvas = canvas;
     this.ctx = ctx;
-    this.params = params;
+    this.parameters = parameters;
 
     this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
     this.rotationState = {
-      red: this.params.getIn(['colors', 'red']),
-      green: this.params.getIn(['colors', 'green']),
-      blue: this.params.getIn(['colors', 'blue']),
+      red: this.parameters.getIn(['colors', 'red']),
+      green: this.parameters.getIn(['colors', 'green']),
+      blue: this.parameters.getIn(['colors', 'blue']),
       dir: -1,
       index: 0
     };
@@ -40,9 +40,9 @@ class Effect {
     const curColor = colorKeys[index];
     const dir = this.rotationState.dir;
     const colors = {
-      red: this.params.getIn(['colors', 'red']),
-      green: this.params.getIn(['colors', 'green']),
-      blue: this.params.getIn(['colors', 'blue'])
+      red: this.parameters.getIn(['colors', 'red']),
+      green: this.parameters.getIn(['colors', 'green']),
+      blue: this.parameters.getIn(['colors', 'blue'])
     };
 
     let nextVal = this.rotationState[curColor] + 10 * dir;

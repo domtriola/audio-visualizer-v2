@@ -1,4 +1,5 @@
 import { fromJS } from 'immutable';
+import { UPDATE_COLOR } from '../actions/parameter_actions';
 
 const _defaultState = fromJS({
   colors: {
@@ -12,6 +13,10 @@ const _defaultState = fromJS({
 
 const parameterReducer = (state = _defaultState, action) => {
   switch(action.type) {
+    case UPDATE_COLOR:
+      let colors = state.get('colors');
+      colors = colors.set(action.color, action.amt);
+      return state.set('colors', colors);
     default:
       return state;
   }

@@ -5,29 +5,32 @@ const effects = {
 };
 
 class Animator {
-  constructor(analyser, canvas, ctx, effect, params) {
+  constructor(analyser, canvas, ctx, effect, parameters) {
     this.analyser = analyser;
     this.canvas = canvas;
     this.ctx = ctx;
-    this.params = params;
+    this.parameters = parameters;
+    this.effectName = effect.get('name');
 
-    const Effect = effects[effect.get('name')];
-    this.effect = new Effect(analyser, canvas, ctx, params);
+    const Effect = effects[this.effectName];
+    this.Effect = new Effect(analyser, canvas, ctx, parameters);
 
     this.draw();
   }
 
   draw() {
-    this.effect.draw();
+    this.Effect.draw();
     requestAnimationFrame(() => this.draw());
   }
 
-  // udpateEffect(newEffect) {
-  //   const Effect = effects[newEffect];
-  //   this.effect = new Effect(this.analyser, this.canvas, this.ctx, this.params);
-  //
-  //   this.draw();
-  // }
+  update(field, val) {
+    this[field] = val;
+
+    const Effect = effects[this.effectName];
+    this.Effect = new Effect(
+      this.analyser, this.canvas, this.ctx, this.parameters
+    );
+  }
 }
 
 export default Animator;
