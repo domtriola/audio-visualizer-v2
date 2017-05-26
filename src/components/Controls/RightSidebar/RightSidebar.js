@@ -32,15 +32,15 @@ class RightSidebar extends Component {
             colors={this.props.parameters.get('colors')}
             updateColor={this.updateColor} />
 
+          <h3>Weight</h3>
           <ParamSlider
-            name="Weight"
             min={0}
             max={10}
             value={this.props.parameters.get('weight')}
             updateParam={this.updateParam('weight')} />
 
+          <h3>Intensity</h3>
           <ParamSlider
-            name="Intensity"
             min={0}
             max={100}
             value={this.props.parameters.get('intensity')}

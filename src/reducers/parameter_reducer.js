@@ -3,12 +3,12 @@ import { UPDATE_COLOR, UPDATE_PARAM } from '../actions/parameter_actions';
 
 const _defaultState = fromJS({
   colors: {
-    red: 255,
-    green: 255,
-    blue: 255
+    red: 175,
+    green: 175,
+    blue: 175
   },
-  intensity: 100,
-  weight: 10
+  intensity: 50,
+  weight: 5
 });
 
 const parameterReducer = (state = _defaultState, action) => {

@@ -7,3 +7,17 @@
 .sidebar-content {
   width: 200px;
 }
+
+.color-slider {
+  margin-bottom: 10px;
+}
+
+.color-slider div {
+  display: inline-block;
+}
+
+.color-box {
+  padding: 2px;
+  width: 10px;
+  height: 10px;
+}
