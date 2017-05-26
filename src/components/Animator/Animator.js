@@ -1,4 +1,4 @@
-import Ripples from './effects/Ripples';
+import Ripples from './effects/Ripples/Ripples';
 
 const effects = {
   ripples: Ripples
@@ -19,6 +19,7 @@ class Animator {
 
   draw() {
     this.effect.draw();
+    requestAnimationFrame(() => this.draw());
   }
 
   // udpateEffect(newEffect) {

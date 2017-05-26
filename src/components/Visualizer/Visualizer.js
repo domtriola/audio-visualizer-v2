@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import music from '../../music/Tours_-_01_-_Enthusiast.mp3';
 import Animator from '../Animator/Animator';
 
 class Visualizer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const audioContext = new AudioContext();
     const analyser = audioContext.createAnalyser();
-    const source = audioContext.createMediaElementSource(this.refs.audio);
+    const source = audioContext.createMediaElementSource(
+      ReactDOM.findDOMNode(this.refs.audio)
+    );
     source.connect(analyser);
     analyser.connect(audioContext.destination);
 
     this.analyser = analyser;
     this.ctx = this.refs.canvas.getContext('2d');
-
 
     this.animator = new Animator(
       this.analyser,
