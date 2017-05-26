@@ -18,6 +18,10 @@ class Effect {
     this.rotateColors = this.rotateColors.bind(this);
   }
 
+  update(field, val) {
+    this[field] = val;
+  }
+
   updateData() {
     this.analyser.getByteFrequencyData(this.dataArray);
   }

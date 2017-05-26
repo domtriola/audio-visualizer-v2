@@ -25,11 +25,7 @@ class Animator {
 
   update(field, val) {
     this[field] = val;
-
-    const Effect = effects[this.effectName];
-    this.Effect = new Effect(
-      this.analyser, this.canvas, this.ctx, this.parameters
-    );
+    this.Effect.update(field, val);
   }
 }
 
