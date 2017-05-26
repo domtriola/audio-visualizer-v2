@@ -1,5 +1,3 @@
-import { fromJS } from 'immutable';
-
 class Effect {
   constructor(analyser, canvas, ctx, params) {
     this.analyser = analyser;

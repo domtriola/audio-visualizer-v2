@@ -6,3 +6,8 @@
   padding: 20px;
   color: white;
 }
+
+.App-main {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,9 @@
+.Visualizer canvas,
+.Visualizer audio {
+  display: block;
+  margin: 0 auto;
+}
+
+.Visualizer audio {
+  width: 600px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import './Visualizer.css';
 import music from '../../music/Tours_-_01_-_Enthusiast.mp3';
 import Animator from '../Animator/Animator';
 
@@ -36,7 +37,7 @@ class Visualizer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Visualizer">
         <canvas
           ref="canvas"
           width="600"
