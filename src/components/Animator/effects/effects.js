@@ -1,8 +1,9 @@
 import Ripples from './Ripples/Ripples';
+import Equalizer from './Equalizer/Equalizer';
 
 const effects = {
   ripples: Ripples,
-  equalizer: null
+  equalizer: Equalizer
 };
 
 export default effects;

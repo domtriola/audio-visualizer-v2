@@ -22,8 +22,6 @@ class Ripples extends Effect {
   }
 
   drawRipples() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
     this.ripples.forEach(ripple => {
       this.ctx.strokeStyle = ripple.rgb;
       this.ctx.lineWidth = ripple.width;
@@ -55,11 +53,11 @@ class Ripples extends Effect {
 
     this.genRipple(vol, colors);
 
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.drawRipples();
 
     this.cleanUpRipples();
   }
-
 }
 
 export default Ripples;
