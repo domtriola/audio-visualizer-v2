@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import LeftSidebar from './LeftSidebar';
+import { updateEffect } from '../../../actions/effect_actions';
 
-const mapStateToProps = ({ effect }) => ({
-  effect: effect
+const mapDispatchToProps = dispatch => ({
+  updateEffect: effectName => dispatch(updateEffect(effectName))
 });
 
 export default connect(
-  mapStateToProps
+  null,
+  mapDispatchToProps
 )(LeftSidebar);

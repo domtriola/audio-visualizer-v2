@@ -27,8 +27,17 @@ class Visualizer extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // if (newProps.effect !== this.props.effect)
-    //   this.animator.update('effect', newProps.effect);
+    if (newProps.effect !== this.props.effect) {
+      this.animator.stop();
+
+      this.animator = new Animator(
+        this.analyser,
+        this.refs.canvas,
+        this.ctx,
+        newProps.effect,
+        this.props.parameters
+      );
+    }
 
     if (!newProps.parameters.equals(this.props.parameters)) {
       this.animator.update('parameters', newProps.parameters);

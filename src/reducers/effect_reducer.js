@@ -1,4 +1,5 @@
 import { Map } from 'immutable';
+import { UPDATE_EFFECT } from '../actions/effect_actions';
 
 const _defaultState = Map({
   name: "ripples"
@@ -6,6 +7,8 @@ const _defaultState = Map({
 
 const dataReducer = (state = _defaultState, action) => {
   switch(action.type) {
+    case UPDATE_EFFECT:
+      return state.set('name', action.effectName);
     default:
       return state;
   }

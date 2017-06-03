@@ -1,8 +1,4 @@
-import Ripples from './effects/Ripples/Ripples';
-
-const effects = {
-  ripples: Ripples
-};
+import effects from './effects/effects';
 
 class Animator {
   constructor(analyser, canvas, ctx, effect, parameters) {
@@ -11,17 +7,23 @@ class Animator {
     const Effect = effects[this.effectName];
     this.Effect = new Effect(analyser, canvas, ctx, parameters);
 
+    this.stopped = false;
     this.draw();
   }
 
   draw() {
     this.Effect.draw();
-    requestAnimationFrame(() => this.draw());
+    if (!this.stopped)
+      requestAnimationFrame(() => this.draw());
   }
 
   update(field, val) {
     this[field] = val;
     this.Effect.update(field, val);
+  }
+
+  stop() {
+    this.stopped = true;
   }
 }
 
