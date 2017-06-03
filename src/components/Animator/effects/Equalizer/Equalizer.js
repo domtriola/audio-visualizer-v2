@@ -20,10 +20,12 @@ class Equalizer extends Effect {
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    let barWidth = this.canvas.width / this.dataArray.length * 8;
+    let barWidth = this.canvas.width / this.dataArray.length *
+                   this.parameters.get('weight') + 4;
 
     for (let i = 1; i < this.dataArray.length; i += barWidth) {
-      let height = this.dataArray[Math.floor(i)];
+      let height = this.dataArray[Math.floor(i)] *
+                   this.parameters.get('intensity') / 100;
 
       this.drawBar(i, barWidth, height, this.parameters.get('colors'));
     }
