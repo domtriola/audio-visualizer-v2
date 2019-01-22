@@ -8,9 +8,8 @@ class Visualizer extends Component {
   componentDidMount() {
     const audioContext = new AudioContext();
     const analyser = audioContext.createAnalyser();
-    const source = audioContext.createMediaElementSource(
-      ReactDOM.findDOMNode(this.refs.audio)
-    );
+    const audioElement = ReactDOM.findDOMNode(this.refs.audio);
+    const source = audioContext.createMediaElementSource(audioElement);
     source.connect(analyser);
     analyser.connect(audioContext.destination);
 
@@ -24,6 +23,12 @@ class Visualizer extends Component {
       this.props.effect,
       this.props.parameters
     );
+
+    audioElement.addEventListener('play', () => {
+      audioContext.resume().then(() => {
+        console.log('Playback resumed successfully');
+      });
+    });
   }
 
   componentWillReceiveProps(newProps) {
